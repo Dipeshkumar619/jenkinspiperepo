@@ -6,7 +6,7 @@ pipeline{
 			when{
 				//changeRequest()
 				//changelog '.*some_text.*'
-				changeset pattern: "*.js", caseSensitive: true	
+				when { changeset "**/*.js" }	
 			}
 			
 			steps{
