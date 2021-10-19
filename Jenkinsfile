@@ -5,7 +5,7 @@ pipeline{
 	stage('Build'){
 			when{
 				changeRequest()
-				#changelog '.*some_text.*'
+				//changelog '.*some_text.*'
 			
 			}
 			
