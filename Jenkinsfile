@@ -4,8 +4,9 @@ pipeline{
 	stages{
 	stage('Build'){
 			when{
-				changeRequest()
+				//changeRequest()
 				//changelog '.*some_text.*'
+				changeset glob: "*.js"
 			
 			}
 			
