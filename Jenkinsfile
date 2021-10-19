@@ -6,7 +6,7 @@ pipeline{
 			when{
 				//changeRequest()
 				//changelog '.*some_text.*'
-				when { changeset "**/*.js" }	
+				changeset "**/*.js"	
 			}
 			
 			steps{
