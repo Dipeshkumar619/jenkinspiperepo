@@ -15,6 +15,13 @@ pipeline {
 		}
 	}
 	post{
+		unstable{
+			echo "========Build is unstable========"
+		}
+
+		changed{
+			echo "==========it run if build result different from previous run==="		}
+
 		always{
 			echo "========always========"
 		}
