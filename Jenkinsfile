@@ -5,6 +5,7 @@ pipeline {
 			steps{
 				echo 'Test stage'
 				error 'Stage failed'
+				currentBuild.currentResult = 'UNSTABLE'
 			}
 				
 
