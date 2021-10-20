@@ -20,6 +20,7 @@ pipeline {
 					steps{
 						echo 'Stage C'
 						sleep 10
+						error 'failed stage'
 					}
 				}
 			}
