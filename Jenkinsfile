@@ -46,5 +46,14 @@ pipeline {
 		failure{
 			echo "========pipeline execution failed========"
 		}
+
+		cleanup{
+			echo "============running cleanup==============="
+			script{
+				sh 'ls -ltrh'
+			}
+
+		}
+
 	}
 }
