@@ -20,7 +20,12 @@ pipeline {
 		}
 
 		changed{
-			echo "==========it run if build result different from previous run==="		}
+			echo "==========it run if build result different from previous run==="		
+			}
+		
+		fixed{
+			echo "the stage if fixed"
+		}
 
 		always{
 			echo "========always========"
