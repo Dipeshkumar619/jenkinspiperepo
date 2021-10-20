@@ -15,6 +15,11 @@ pipeline {
 		}
 	}
 	post{
+
+		aborted{
+			echo "=========Pipeline is aborted!!============"
+		}
+
 		regression {
 			echo "=======regression occured======="
 		}
