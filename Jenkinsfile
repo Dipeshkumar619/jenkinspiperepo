@@ -15,6 +15,10 @@ pipeline {
 		}
 	}
 	post{
+		regression {
+			echo "=======regression occured======="
+		}
+
 		unstable{
 			echo "========Build is unstable========"
 		}
