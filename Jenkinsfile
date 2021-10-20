@@ -6,7 +6,7 @@ pipeline {
 				echo 'Test stage'
 				//error 'Stage failed'
 				script{
-					currentBuild.result = 'UNSTABLE'
+					currentBuild.result = 'SUCCESS'
 
 				}
 			}
