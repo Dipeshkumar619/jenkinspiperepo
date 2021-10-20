@@ -2,8 +2,11 @@ pipeline {
 	agent any 
 	stages {
 		stage('Parallel Stage'){
-			echo 'Test stage'
-		//  error 'Stage failed'	
+			steps{
+				echo 'Test stage'
+		//  error 'Stage failed'
+			}
+				
 
 		}
 	}
