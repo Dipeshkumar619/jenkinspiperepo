@@ -4,6 +4,7 @@ pipeline {
 		stage('Parallel Stage'){
 			steps{
 				echo 'Test stage'
+				sleep 10
 				//error 'Stage failed'
 				script{
 					currentBuild.result = 'SUCCESS'
