@@ -1,8 +1,8 @@
-pipeline{
+pipeline {
 	agent any 
-	stages{
+	stages {
 		stage('Parallel Stage'){
-			failFast: true
+			failFast true
 			parallel {
 				stage('A'){
 					steps{
