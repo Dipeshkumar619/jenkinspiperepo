@@ -4,7 +4,7 @@ pipeline {
 		stage('Parallel Stage'){
 			steps{
 				echo 'Test stage'
-		//  error 'Stage failed'
+				error 'Stage failed'
 			}
 				
 
