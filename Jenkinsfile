@@ -14,13 +14,14 @@ pipeline {
 					steps{
 						echo 'Stage B'
 						sleep 10
+						error 'failed stage'
 					}
 				}
 				stage('C'){
 					steps{
 						echo 'Stage C'
 						sleep 10
-						error 'failed stage'
+						
 					}
 				}
 			}
