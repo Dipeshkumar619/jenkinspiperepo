@@ -4,10 +4,10 @@ pipeline{
 			image 'ubuntu:latest'
 		}
 	}
-
+/* 
 	options{
 		newContainerPerStage()
-	}
+	} */
 	stages{
 		stage("Build"){
 			steps{
