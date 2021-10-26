@@ -1,21 +1,38 @@
 pipeline{
-	agent any 
-	
+	agent{
+		docker {
+			image 'ubuntu:latest'
+		}
+	}
+
+	options{
+		newContainerPerStage()
+	}
 	stages{
-	stage('Build'){
-			when{
-				changeRequest()
-				//changelog '.*some_text.*'
-			
-			}
-			
+		stage("Build"){
 			steps{
-				echo 'Hello World changelog'
-			
+				sh 'cat /etc/lsb-release'
+				sh 'hostname'
 			}
-	
-	}
-	}
+		}
 
+		stage("Deploy"){
+			steps{
+				sh 'cat /etc/lsb-release'
+				sh 'hostname'
+			}
 
+		}
+	}
+	post{
+		always{
+			echo "========always========"
+		}
+		success{
+			echo "========pipeline executed successfully ========"
+		}
+		failure{
+			echo "========pipeline execution failed========"
+		}
+	}
 }
