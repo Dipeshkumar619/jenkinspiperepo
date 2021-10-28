@@ -16,7 +16,7 @@ RUN yum -y install httpd httpd-tools
 
 # Install PHP
 RUN yum -y install php php-bcmath php-cli php-common php-gd php-intl php-json php-ldap php-mbstring \
-    php-mysqlnd php-pdo php-pear php-soap php-xml php-xmlrpc php-pecl-zip
+    php-mysqlnd php-pdo php-pear php-soap php-xml php-xmlrpc php-pecl-zip curl
 
 RUN yum clean all
 

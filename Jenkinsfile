@@ -18,7 +18,10 @@ pipeline{
 				dockerfile true
 			}
 			steps{
-				sh 'cat /etc/redhat-release'
+				sh '''
+				#!bin/bash
+				curl https://www.google.com/
+				cat /etc/redhat-release'''
 			}
 		}
 	}	
