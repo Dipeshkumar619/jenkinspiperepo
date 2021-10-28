@@ -18,6 +18,7 @@ pipeline{
 				dockerfile {
 					dir 'dockerfiledir'
 					filename 'customDockerfile'
+					additionalBuildArgs --tag 'mydockerfile:example'
 				}
 			}
 			steps{
