@@ -2,7 +2,7 @@ pipeline{
 	agent{
 		docker {
 			image 'ubuntu:latest'
-			customWorkspace '\home\ubuntu\customWorkspace'
+			customWorkspace '/home/ubuntu/customWorkspace'
 		}
 	}
 /* 
