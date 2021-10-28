@@ -6,7 +6,7 @@ pipeline{
 			agent any 
 			steps{
 				checkout([$class: 'GitSCM', 
-				branches: [[name: 'dockerfile']], 
+				branches: [[name: 'dockerfile_dir']], 
 				extensions: [], 
 				userRemoteConfigs: [[credentialsId: 'githubapi', url: 'https://github.com/Dipeshkumar619/jenkinspiperepo.git']]])
 			}
@@ -15,7 +15,9 @@ pipeline{
 
 		stage("Build"){
 			agent{
-				dockerfile true
+				dockerfile {
+					dir 'dockerfiledir'
+				}
 			}
 			steps{
 				sh '''
