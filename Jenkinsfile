@@ -3,7 +3,7 @@ pipeline{
 		docker {
 			image 'quay.io/dipesh_gupta_ak/myfirstrepo:latest'
 			registryUrl 'https://quay.io'
-			registryCredentialId 'dipesh_gupta_ak'
+			registryCredentialsId 'dipesh_gupta_ak'
 		}
 	}
 
