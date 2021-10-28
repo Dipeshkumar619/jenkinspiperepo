@@ -17,6 +17,7 @@ pipeline{
 			agent{
 				dockerfile {
 					dir 'dockerfiledir'
+					filename 'customDockerfile'
 				}
 			}
 			steps{
