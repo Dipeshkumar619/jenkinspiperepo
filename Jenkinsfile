@@ -1,5 +1,5 @@
 def nameOfPerson = "john"
-def printName(){
+def printName(name){
 	echo name
 }
 pipeline{
