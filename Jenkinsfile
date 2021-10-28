@@ -7,8 +7,11 @@ pipeline{
 
 	stages{
 		stage("Build"){
+			agent{
+				dockerfile true
+			}
 			steps{
-				sh 'mvn -v'
+				sh 'cat /etc/lsb-release'
 			}
 		}
 	}	
