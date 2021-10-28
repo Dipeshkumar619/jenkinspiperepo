@@ -1,8 +1,9 @@
 pipeline{
 	agent{
 		docker {
-			image 'ubuntu:latest'
-			customWorkspace '/home/ubuntu/customWorkspace'
+			image 'quay.io/dipesh_gupta_ak/myfirstrepo:latest'
+			registryUrl 'https://quay.io'
+			registryCredentialId 'dipesh_gupta_ak'
 		}
 	}
 /* 
@@ -12,19 +13,10 @@ pipeline{
 	stages{
 		stage("Build"){
 			steps{
-				sh 'cat /etc/lsb-release'
-				sh 'hostname'
+				sh 'printenv'
 			}
 		}
 
-		stage("Deploy"){
-			steps{
-				sh 'cat /etc/lsb-release'
-				sh 'hostname'
-			}
-
-		}
-	}
 	post{
 		always{
 			echo "========always========"
