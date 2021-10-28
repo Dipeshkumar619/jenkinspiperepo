@@ -2,7 +2,7 @@ pipeline{
 	agent{
 		docker {
 			image 'ubuntu:latest'
-			customWorkspace 'C:\\Users\\Dipesh\\Desktop\\DevOps\\GIT\\customWorkspace'
+			customWorkspace '\home\ubuntu\customWorkspace'
 		}
 	}
 /* 
