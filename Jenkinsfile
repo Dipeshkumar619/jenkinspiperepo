@@ -1,17 +1,24 @@
 pipeline{
-	agent{
-		docker {
-			image 'maven:3.5.3-jdk-10-slim'
-		}
-	}
+	agent none
 
 	stages{
+		stage('Checkout'){
+			agent any 
+			steps{
+				checkout([$class: 'GitSCM', 
+				branches: [[name: 'dockerfile']], 
+				extensions: [], 
+				userRemoteConfigs: [[credentialsId: 'githubapi', url: 'https://github.com/Dipeshkumar619/jenkinspiperepo.git']]])
+			}
+		}
+
+
 		stage("Build"){
 			agent{
 				dockerfile true
 			}
 			steps{
-				sh 'cat /etc/lsb-release'
+				sh 'cat /etc/redhat-release'
 			}
 		}
 	}	
