@@ -1,16 +1,14 @@
 pipeline{
 	agent{
 		docker {
-			image 'quay.io/dipesh_gupta_ak/myfirstrepo:latest'
-			registryUrl 'https://quay.io'
-			registryCredentialsId 'dipesh_gupta_ak'
+			image 'maven:3.5:3-jdk-10-slim'
 		}
 	}
 
 	stages{
 		stage("Build"){
 			steps{
-				sh 'printenv'
+				sh 'mvn -v'
 			}
 		}
 	}	
