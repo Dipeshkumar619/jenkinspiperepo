@@ -6,16 +6,14 @@ pipeline{
 			registryCredentialId 'dipesh_gupta_ak'
 		}
 	}
-/* 
-	options{
-		newContainerPerStage()
-	} */
+
 	stages{
 		stage("Build"){
 			steps{
 				sh 'printenv'
 			}
 		}
+	}	
 
 	post{
 		always{
