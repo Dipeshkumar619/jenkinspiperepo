@@ -6,8 +6,9 @@ pipeline{
 			agent any 
 			steps{
 				checkout([$class: 'GitSCM', 
-				branches: [[name: 'dockerfile_dir']], 
-				extensions: [], 
+				branches: [[name: 'dockerfile']], 
+				extensions: [[$class: 'RelativeTargetDirectory', 
+				relativeTargetDir: 'checkout-directory']], 
 				userRemoteConfigs: [[credentialsId: 'githubapi', url: 'https://github.com/Dipeshkumar619/jenkinspiperepo.git']]])
 			}
 		}
@@ -19,6 +20,7 @@ pipeline{
 					dir 'dockerfiledir'
 					filename 'customDockerfile'
 					additionalBuildArgs '--tag mydockerfile:example'
+					customWorkspace '/var/lib/jenkins/workspace/pipeline-agent-dockerfile-customWorkspace/checkout-directory'
 				}
 			}
 			steps{
