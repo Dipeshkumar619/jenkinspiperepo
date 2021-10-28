@@ -1,35 +1,21 @@
+def nameOfPerson = "john"
+def printName(){
+	echo name
+}
 pipeline{
-	agent none
+	agent any
 
 	stages{
 		stage('Checkout'){
-			agent any 
 			steps{
-				checkout([$class: 'GitSCM', 
-				branches: [[name: 'dockerfile']], 
-				extensions: [[$class: 'RelativeTargetDirectory', 
-				relativeTargetDir: 'checkout-directory']], 
-				userRemoteConfigs: [[credentialsId: 'githubapi', url: 'https://github.com/Dipeshkumar619/jenkinspiperepo.git']]])
-			}
-		}
-
-
-		stage("Build"){
-			agent{
-				dockerfile {
-					dir 'dockerfiledir'
-					filename 'customDockerfile'
-					additionalBuildArgs '--tag mydockerfile:example'
-					customWorkspace '/var/lib/jenkins/workspace/pipeline-agent-dockerfile-customWorkspace/checkout-directory'
+				script{
+					printName(nameOfPerson)
 				}
 			}
-			steps{
-				sh '''
-				#!bin/bash
-				curl https://www.google.com/
-				cat /etc/redhat-release'''
-			}
+			
+			
 		}
+
 	}	
 
 	post{
