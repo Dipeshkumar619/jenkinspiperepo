@@ -13,7 +13,7 @@ pipeline{
 				echo "========executing A========"
 				script{
 					withMaven(maven: 'MVN_3_6_3'){
-						sh "mvn clean install"
+						sh "mvn -X clean install"
 					}
 				}
 			}
