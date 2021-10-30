@@ -1,23 +1,28 @@
-def nameOfPerson = "john"
-def printName(name){
-	echo name
-}
 pipeline{
-	agent any
-
+	agent{
+		label "node"
+	}
 	stages{
-		stage('Checkout'){
+		stage("A"){
 			steps{
+				echo "========executing A========"
 				script{
-					printName(nameOfPerson)
+					def shellOutput = sh(returnStdout: true, script: 'll -a')
+					echo "this is shellOutput is: ${shellOutput}"
 				}
 			}
-			
-			
+
 		}
+		stage("B"){
+			steps{
+				script{
+					def shellStatus = sh(returnStatus: true, script: 'll -a')
+					echo "this is shellStatus is: ${shellStatus}"
 
-	}	
-
+				}
+			}
+		}
+	}
 	post{
 		always{
 			echo "========always========"
