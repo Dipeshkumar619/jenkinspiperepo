@@ -2,13 +2,14 @@ pipeline{
 	agent any 
 	stages{
 		stage("Build"){
+			
+			steps{
 			checkout([$class: 'GitSCM', 
 			branches: [[name: '*/master']], 
 			extensions: [], 
 			userRemoteConfigs: [[credentialsId: 'githubapi', 
 			url: 'https://github.com/Dipeshkumar619/simple_java_project.git']]])
 
-			steps{
 				echo "========executing A========"
 				script{
 					withMaven(maven: 'maven_3_6_3'){
