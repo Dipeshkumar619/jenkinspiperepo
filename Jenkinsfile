@@ -13,7 +13,7 @@ pipeline{
 				echo "========executing A========"
 				script{
 					withMaven(maven: 'MVN_3_6_3',mavenSettingConfig: '4be60908-9402-4644-9137-a5e83675af91',
-					options: [junitPublisher(disabled: true), artifactsPublisher(disabled: true)]){
+					options: [junitPublisher(disabled: false), artifactsPublisher(disabled: false)]){
 						sh "mvn -X clean install"
 					}
 				}
