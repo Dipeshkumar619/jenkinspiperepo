@@ -10,7 +10,7 @@ pipeline{
 					sh 'echo ENV_VAR1: $ENV_VAR1'
 					echo "GROOVY_VAR: ${GROOVY_VAR}"
 					sh 'echo ENV_VAR1: ${ENV_VAR1}'
-					withEnv(['ENV_VAR2=Groovy','MVN_VERSION=mvn --version']){
+					withEnv(['ENV_VAR2= ls /','MVN_VERSION=mvn --version']){
 							sh '$ENV_VAR2'
 							sh '$MVN_VERSION'
 							sh 'printenv'
