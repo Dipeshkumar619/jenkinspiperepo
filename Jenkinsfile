@@ -14,8 +14,10 @@ pipeline{
 		stage("B"){
 			steps{
 				script{
-					def shellStatus = sh(returnStatus: true, script: 'ls -a')
+					def shellStatus = sh(returnStatus: true, script: 'll -a')
 					echo "this is shellStatus is: ${shellStatus}"
+					if(shellStatus == 1)
+						currentBuild.result='FAILURE'
 
 				}
 			}
