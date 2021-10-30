@@ -5,7 +5,7 @@ pipeline{
 			steps{
 				echo "========executing A========"
 				script{
-					def shellOutput = sh(returnStdout: true, script: 'ls -a')
+					def shellOutput = sh(returnStdout: true, script: 'ls -a').trim()
 					echo "this is shellOutput is: ${shellOutput}"
 				}
 			}
