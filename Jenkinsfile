@@ -23,7 +23,7 @@ pipeline{
 		stage("C"){
 			steps{
 				script{
-					def returnValue = sh(returnStatus: true, returnStdout: true, script: 'll -a')
+					def returnValue = sh(returnStatus: true, returnStdout: true, script: 'ls -a')
 					echo "this is returnValue is: ${returnValue}"
 				}
 			}
