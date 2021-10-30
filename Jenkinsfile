@@ -5,8 +5,18 @@ pipeline{
 			steps{
 				echo "========executing A========"
 				script{
-					def shellOutput = sh(returnStdout: true, script: 'ls -a').trim()
-					echo "this is shellOutput is: ${shellOutput}"
+					env.ENV_VAR1='JOHN'
+					def GROOVY_VAR='SMITH'
+					sh 'echo ENV_VAR1: $ENV_VAR1'
+					echo "GROOVY_VAR: ${GROOVY_VAR}"
+					sh 'echo ENV_VAR1: ${ENV_VAR1}'
+					withEnv(['ENV_VAR2=Groovy','MVN_VERSION=mvn --version']){
+							sh '$ENV_VAR2'
+							sh '$MVN_VERSION'
+							sh 'printenv'
+					}
+					sh 'echo ENV_VAR2: $ENV_VAR2'
+					sh 'echo MVN_VERSION: $MVN_VERSION'
 				}
 			}
 
@@ -14,10 +24,10 @@ pipeline{
 		stage("B"){
 			steps{
 				script{
-					def shellStatus = sh(returnStatus: true, script: 'll -a')
-					echo "this is shellStatus is: ${shellStatus}"
-					if(shellStatus != 0)
-						currentBuild.result='FAILURE'
+					env.shellStatus = sh(returnStatus: true, script: 'ls -a')
+					echo "this is shellStatus is: $shellStatus"
+				//	if(shellStatus != 0)
+				//		currentBuild.result='FAILURE'
 
 				}
 			}
