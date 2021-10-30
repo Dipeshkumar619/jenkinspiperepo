@@ -5,7 +5,7 @@ pipeline{
 			steps{
 				echo "========executing A========"
 				script{
-					def shellOutput = sh(returnStdout: true, script: 'll -a')
+					def shellOutput = sh(returnStdout: true, script: 'ls -a')
 					echo "this is shellOutput is: ${shellOutput}"
 				}
 			}
@@ -14,7 +14,7 @@ pipeline{
 		stage("B"){
 			steps{
 				script{
-					def shellStatus = sh(returnStatus: true, script: 'll -a')
+					def shellStatus = sh(returnStatus: true, script: 'ls -a')
 					echo "this is shellStatus is: ${shellStatus}"
 
 				}
