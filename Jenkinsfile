@@ -16,7 +16,7 @@ pipeline{
 				script{
 					def shellStatus = sh(returnStatus: true, script: 'll -a')
 					echo "this is shellStatus is: ${shellStatus}"
-					if(shellStatus == 1)
+					if(shellStatus != 0)
 						currentBuild.result='FAILURE'
 
 				}
