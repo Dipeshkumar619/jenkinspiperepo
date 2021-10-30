@@ -12,7 +12,7 @@ pipeline{
 
 				echo "========executing A========"
 				script{
-					withMaven(maven: 'MVN_3_6_3',mavenSettingConfig: '4be60908-9402-4644-9137-a5e83675af91'){
+					withMaven(maven: 'MVN_3_6_3',mavenSettingConfig: '4be60908-9402-4644-9137-a5e83675af91', mavenOpts: '-XX:+PrintCommandLineFlags -XX: +UseConcMarkSweepGC'){
 						sh "mvn -X clean install"
 					}
 				}
