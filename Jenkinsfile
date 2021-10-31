@@ -6,9 +6,10 @@ pipeline{
 			
 			steps{
 
-				build(job: 'build_child_job', 
-				parameters: [[$class: "StringParameterValue", name: "DeployEnv",value: "developement Env"]])
-
+				// build(job: 'build_child_job', 
+				// parameters: [[$class: "StringParameterValue", name: "DeployEnv",value: "developement Env"]])
+				   build job: 'build_child_job',
+				   parameters: [string(name: 'deployEnv', value: 'development Env')]
 			}
 
 		}
