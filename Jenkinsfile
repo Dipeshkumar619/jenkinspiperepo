@@ -12,6 +12,7 @@ pipeline{
 
 					echo "child job1 input param deployEnv: ${params.deployEnv}"
 					echo "child job1 input param deployEnv: ${deployEnv}"
+					currentBuild.result='FAILURE'
 
 
 				}
