@@ -6,10 +6,13 @@ pipeline{
 			
 			steps{
 
+				// def buildJobReturnValue = build job: 'build_child_job', 
+				// parameters: [[$class: "StringParameterValue", name: "deployEnv", value: "development env"]]
+
 				// build(job: 'build_child_job', 
 				// parameters: [[$class: "StringParameterValue", name: "DeployEnv",value: "developement Env"]])
-				   build job: 'build_child_job',
-				   parameters: [string(name: 'deployEnv', value: 'development Env')]
+				def buildJobReturnValue = build propagate: true, job: 'build_child_job', parameters: [string(name: 'deployEnv', value: 'Production')]
+				echo "buildJobReturnValue.result: ${buildJobReturnValue.result}"
 			}
 
 		}
